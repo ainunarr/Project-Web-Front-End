@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Situs Kopi</title>
+  <link rel="icon" type="image/x-icon" href="/SitiAinun_TA_Vue/img/cafe.ico">
+  <style>
+    /* Gaya CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2e6d9; /* Warna latar belakang */
+      color: #4a4039; /* Warna teks */
+      margin: 0;
+      padding: 0;
+    }
+
+    #app {
+      max-width: auto;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #d4baba; /* Warna latar belakang header */
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background-color: #d4baba; /* Warna latar belakang footer */
+      padding: 10px 20px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #e3d7cd; /* Warna latar belakang item kopi */
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .selected {
+      background-color: #d3b9ad; /* Warna latar belakang item kopi yang dipilih */
+    }
+
+    input[type="text"],
+    input[type="number"],
+    button {
+      padding: 8px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #d4baba; /* Warna latar belakang tombol */
+      color: #4a4039; /* Warna teks tombol */
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b19e97; /* Warna latar belakang tombol saat dihover */
+    }
+
+    /* Efek transisi */
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity 0.5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+      opacity: 0;
+    }
+
+    /* Gaya untuk gambar */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto; /* Membuat gambar menjadi rata tengah */
+    }
+
+    /* Gaya untuk gambar di bagian detail kopi */
+    .detail-image {
+      max-width: 50%;
+      margin: 20px auto; /* Membuat gambar menjadi rata tengah */
+    }
+
+    @media only screen and (min-width: 600px) {
+      /* Aturan CSS untuk tampilan layar yang lebih besar */
+      main {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      section {
+        width: calc(50% - 20px);
+      }
+
+      input[type="text"],
+      input[type="number"],
+      button {
+        width: calc(50% - 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+        <img src="/SitiAinun_TA_Vue/img/logo kecil.png" alt="Logo Situs Kopi">
+        <h1>Selamat Datang di Situs Kopi Kami</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Tentang Kami</h2>
+        <p>Kami sangat bersemangat tentang kopi dan berdedikasi untuk menyediakan pengalaman kopi terbaik bagi pelanggan kami.</p>
+      </section>
+
+      <section>
+        <h2>Kopi Kami</h2>
+        <ul>
+          <transition-group name="fade">
+            <li v-for="(kopi, index) in kopiList" :key="index" @click="showCoffeeDetails(index)" :class="{ 'selected': selectedCoffee === index }">
+                <img src="/SitiAinun_TA_Vue/img/cover1.jpg" alt="Gambar Kopi">
+                <h3>{{ kopi.nama }}</h3>
+                <p>{{ kopi.deskripsi }}</p>
+                <p>Harga: Rp{{ kopi.harga }}</p>
+            </li>
+          </transition-group>
+        </ul>
+      </section>
+
+      <section v-if="selectedCoffee !== null">
+        <h2>Detail Kopi</h2>
+        <transition name="fade">
+          <div v-if="selectedCoffee !== null">
+            <img class="detail-image" src="/SitiAinun_TA_Vue/img/cover2.png" alt="Gambar Kopi">
+            <h3>{{ kopiList[selectedCoffee].nama }}</h3>
+            <p>{{ kopiList[selectedCoffee].deskripsi }}</p>
+            <p>Harga: Rp{{ kopiList[selectedCoffee].harga }}</p>
+            <button @click="selectedCoffee = null">Sembunyikan Detail</button>
+          </div>
+        </transition>
+      </section>
+
+      <section>
+        <h2>Tambahkan Kopi Baru</h2>
+        <input type="text" v-model="newCoffee.nama" placeholder="Nama kopi">
+        <input type="text" v-model="newCoffee.deskripsi" placeholder="Deskripsi kopi">
+        <input type="number" v-model="newCoffee.harga" placeholder="Harga kopi">
+        <br><br>
+        <button @click="addCoffee">Tambahkan</button>
+      </section>
+
+      <section>
+        <h2>Statistik</h2>
+        <p>Jumlah Kopi: {{ totalCoffees }}</p>
+        <p>Harga Rata-rata: Rp{{ averagePrice }}</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hubungi kami di: kopifullsun@example.com</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp, ref, transition } = Vue;
+    
+    const app = createApp({
+      data() {
+        return {
+          kopiList: [
+            { nama: 'Espresso', deskripsi: 'Kopi pekat yang dibuat dengan cara menyeduh air panas ke dalam bubuk kopi halus.', harga: 25000 },
+            { nama: 'Cappuccino', deskripsi: 'Minuman kopi yang terbuat dari campuran espresso dan susu.', harga: 30000 },
+            { nama: 'Latte', deskripsi: 'Minuman kopi dengan campuran espresso dan susu steamed.', harga: 35000 }
+          ],
+          selectedCoffee: null,
+          newCoffee: { nama: '', deskripsi: '', harga: '' }
+        };
+      },
+      methods: {
+        showCoffeeDetails(index) {
+          this.selectedCoffee = index;
+        },
+        addCoffee() {
+          if (this.newCoffee.nama && this.newCoffee.deskripsi && this.newCoffee.harga) {
+            this.kopiList.push({ nama: this.newCoffee.nama, deskripsi: this.newCoffee.deskripsi, harga: this.newCoffee.harga });
+            this.newCoffee = { nama: '', deskripsi: '', harga: '' }; // Reset form
+          }
+        }
+      },
+      computed: {
+        totalCoffees() {
+          return this.kopiList.length;
+        },
+        averagePrice() {
+          if (this.kopiList.length === 0) return 0;
+          const total = this.kopiList.reduce((acc, cur) => acc + cur.harga, 0);
+          return (total / this.kopiList.length).toFixed(2);
+        }
+      }
+    });
+
+    app.component('transition', transition);
+
+    app.mount('#app');
+  </script>
+</body>
+</html>

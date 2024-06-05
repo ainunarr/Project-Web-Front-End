@@ -1,0 +1,21 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #A7E5FF; /* Warna pastel untuk tombol */
+    color: #333; /* Warna teks */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #86D6FF; /* Warna pastel saat tombol dihover */
+  }
+  
+  body {
+    background-color: #F2F3F4; /* Warna latar belakang */
+  }  

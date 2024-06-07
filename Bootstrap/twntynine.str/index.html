@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>twntynine.str</title>
+    <link href="bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Navbar */
+        .navbar {
+            background-color: #87CEEB; /* Warna biru pastel */
+        }
+
+        /* Address Section */
+        #address-section {
+            background-color: #ADD8E6; /* Warna biru muda */
+        }
+
+        /* Product Section */
+        #product-section {
+            background-color: #B0E0E6; /* Warna biru baby */
+        }
+
+        /* Contact Section */
+        #contact-section {
+            background-color: #AFEEEE; /* Warna cyan muda */
+        }
+
+        /* About Section */
+        #about-section {
+            background-color: #F0FFFF; /* Warna azure */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #87CEEB; /* Warna biru pastel */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://heylink.me/twentynine.str/">twntynine.str</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#address-section">Address</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#product-section">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://shopee.co.id/twentyninestoree">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">Contact Person</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section">About Store</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home-section" class="py-5 text-center">
+        <div class="container">
+            <img src="logo.jpg" alt="twntynine.str Logo" class="img-fluid">
+        </div>
+    </section>
+
+    <!-- Address Section -->
+    <section id="address-section" class="py-5">
+        <div class="container">
+            <h2>Address</h2>
+            <p>Griya Adaha 02, Gg. Bimo, Brajan, Tamantirto, Kec. Kasihan, Kabupaten Bantul, 
+                Daerah Istimewa Yogyakarta 55184</p>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="product-section" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Products</h2>
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="adidas.jpg" class="card-img-top img-fluid float-start" alt="Adidas">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Adidas</h5>
+                            <p class="card-text text-center">Classic sneakers with iconic design.</p>
+                            <p class="card-text text-center">Harga: Rp 1.700.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="nike.png" class="card-img-top img-fluid float-end" alt="Nike">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Nike</h5>
+                            <p class="card-text text-center">High-performance athletic shoes.</p>
+                            <p class="card-text text-center">Harga: Rp 1.220.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="newbalance.jpg" class="card-img-top img-fluid float-start" alt="New Balance">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">New Balance</h5>
+                            <p class="card-text text-center">Comfortable shoes with superior cushioning.</p>
+                            <p class="card-text text-center">Harga: Rp 2.500.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="vans.jpg" class="card-img-top img-fluid float-end" alt="Vans">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Vans</h5>
+                            <p class="card-text text-center">Stylish sneakers with a timeless design.</p>
+                            <p class="card-text text-center">Harga: Rp 2.330.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Person Section -->
+    <section id="contact-section" class="py-5">
+        <div class="container">
+            <h2>Contact Person</h2>
+            <p>Whatsapp Number : 
+                Zaky Aydin
+                0812 2743 6647</p>
+            <p>Instagram : twntynine.str</p>
+            <a href="https://www.instagram.com/twntynine.str?igsh=NHUwZWthaXpodmY2">Link Instagram</a><br><br>
+            <hr><br>
+            <!-- Form untuk mengirim pesan -->
+            <h3>Send us a message:</h3>
+            <form action="#" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <br><div class="text-center"><button type="submit" class="btn btn-info">Send Message</button></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Store Section -->
+    <section id="about-section" class="py-5">
+        <div class="container">
+            <h2>About Store</h2>
+            <p align="justify">Kami merupakan toko sepatu sneakers yang berfokus pada koleksi terpilih dari brand terkemuka seperti Nike, New Balance, Adidas, dan Vans. Dalam dua tahun terakhir, 
+                kami telah berkomitmen untuk menyediakan sepatu-sepatu asli dan berkualitas tinggi.
+                Kami percaya bahwa setiap langkah adalah ekspresi gaya dan kepribadian Anda. Kami memilih koleksi kami dengan cermat 
+                untuk memenuhi standar kualitas tertinggi. Tim kami siap membantu Anda menemukan sepatu yang paling sesuai 
+                dengan gaya dan kebutuhan Anda.
+                
+                Terima kasih telah memilih twentynine.store sebagai destinasi utama Anda untuk sepatu sneakers. 
+                Kami bersemangat untuk terus melayani Anda dan membantu Anda menemukan sepatu yang sempurna 
+                untuk melengkapi gaya Anda.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 twntynine.str. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
